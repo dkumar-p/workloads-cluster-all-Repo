@@ -1,0 +1,170 @@
+locals {
+  name_vault_irlanda   = format("%s-%s-%s", "ocpame2-vb", "account", "eu-west-1")
+  name_vault_francfort = format("%s-%s-%s", "ocpame2-vb", "account", "eu-central-1")
+
+  name_sns = format("%s-%s-%s", "ocpame2-sns", var.tags["ib:account:short_name"], "backup-vault-events")
+
+}
+
+## ROL IAM ASUME ROL------------------------------------------------------------
+resource "aws_iam_role" "vault-backup" {
+  count              = var.create_vault == true ? 1 : 0
+  name               = "backup-rol-account"
+  assume_role_policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": ["sts:AssumeRole"],
+      "Effect": "allow",
+      "Principal": {
+        "Service": ["backup.amazonaws.com"]
+      }
+    }
+  ]
+}
+POLICY
+}
+
+resource "aws_iam_role_policy_attachment" "vault-backup" {
+  count      = var.create_vault == true ? 1 : 0
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"
+  role       = aws_iam_role.vault-backup[0].name
+}
+
+## VAULT eu-west-1 -------------------------------------------------------------
+resource "aws_backup_vault" "vault-backup" {
+  count       = var.create_vault == true ? 1 : 0
+  name        = local.name_vault_irlanda
+  kms_key_arn = aws_kms_key.kms-backup.arn
+  tags = merge(var.tags, {
+    Name = local.name_vault_irlanda
+    }
+  )
+}
+
+resource "aws_backup_vault_policy" "vault-backup" {
+  count             = var.create_vault == true ? 1 : 0
+  backup_vault_name = aws_backup_vault.vault-backup[0].name
+
+  policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Id": "default",
+  "Statement": [
+    {
+      "Sid": "default",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": [
+        "backup:DescribeBackupVault",
+        "backup:DeleteBackupVault",
+        "backup:PutBackupVaultAccessPolicy",
+        "backup:DeleteBackupVaultAccessPolicy",
+        "backup:GetBackupVaultAccessPolicy",
+        "backup:StartBackupJob",
+        "backup:GetBackupVaultNotifications",
+        "backup:PutBackupVaultNotifications"
+      ],
+      "Resource": "${aws_backup_vault.vault-backup[0].arn}"
+    }
+  ]
+}
+POLICY
+}
+
+
+## VAULT eu-central-1 -------------------------------------------------------------
+resource "aws_backup_vault" "vault-backup-francfort" {
+  provider    = aws.francfort
+  count       = var.create_vault == true ? 1 : 0
+  name        = local.name_vault_francfort
+  kms_key_arn = aws_kms_key.kms-backup-francfort.arn
+  tags = merge(var.tags, {
+    Name = local.name_vault_francfort
+    }
+  )
+}
+
+resource "aws_backup_vault_policy" "vault-backup-francfort" {
+  count             = var.create_vault == true ? 1 : 0
+  provider          = aws.francfort
+  backup_vault_name = aws_backup_vault.vault-backup-francfort[0].name
+
+  policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Id": "default",
+  "Statement": [
+    {
+      "Sid": "default",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": [
+        "backup:DescribeBackupVault",
+        "backup:DeleteBackupVault",
+        "backup:PutBackupVaultAccessPolicy",
+        "backup:DeleteBackupVaultAccessPolicy",
+        "backup:GetBackupVaultAccessPolicy",
+        "backup:StartBackupJob",
+        "backup:GetBackupVaultNotifications",
+        "backup:PutBackupVaultNotifications"
+      ],
+      "Resource": "${aws_backup_vault.vault-backup-francfort[0].arn}"
+    }
+  ]
+}
+POLICY
+}
+
+## SNS Y NOTIFICATIONS ---------------------------------------------------------
+resource "aws_sns_topic" "vault-backup" {
+  count = var.create_vault == true ? 1 : 0
+  name  = local.name_sns
+  tags = merge(var.tags, {
+    Name = local.name_sns
+    }
+  )
+}
+
+
+data "aws_iam_policy_document" "vault-backup" {
+  count     = var.create_vault == true ? 1 : 0
+  policy_id = "__default_policy_ID"
+
+  statement {
+    actions = [
+      "SNS:Publish",
+    ]
+
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["backup.amazonaws.com"]
+    }
+
+    resources = [
+      "${aws_sns_topic.vault-backup[0].arn}"
+    ]
+
+    sid = "__default_statement_ID"
+  }
+}
+
+resource "aws_sns_topic_policy" "vault-backup" {
+  count  = var.create_vault == true ? 1 : 0
+  arn    = aws_sns_topic.vault-backup[0].arn
+  policy = data.aws_iam_policy_document.vault-backup[0].json
+}
+
+resource "aws_backup_vault_notifications" "vault-backup" {
+  count               = var.create_vault == true ? 1 : 0
+  backup_vault_name   = aws_backup_vault.vault-backup[0].name
+  sns_topic_arn       = aws_sns_topic.vault-backup[0].arn
+  backup_vault_events = ["BACKUP_JOB_STARTED", "RESTORE_JOB_COMPLETED"]
+}

@@ -1,0 +1,58 @@
+
+resource "aws_iam_policy" "IAM_access_pass" {
+  name        = "Codedeployiamaccess"
+  description = "Code deploy policy to create Auto Scaling group with a launch template"
+  policy = jsonencode({
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Effect" : "Allow",
+        "Action" : [
+          "iam:PassRole",
+          "ec2:CreateTags",
+          "ec2:RunInstances"
+        ],
+        "Resource" : "*"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "IAM_access_pass" {
+  role       = aws_iam_role.codedeploy.name
+  policy_arn = "arn:aws:iam::${var.account_number}:policy/Codedeployiamaccess"
+}
+
+resource "aws_iam_role" "codedeploy" {
+  name = "AmazonCodedeployRoleForDeployementQuickSetup"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "codedeploy.amazonaws.com"
+        }
+      },
+    ]
+  })
+  tags = {
+    tag-key = "tag-value"
+  }
+}
+resource "aws_iam_role_policy_attachment" "AWSCodeDeployFullAccess" {
+  role       = aws_iam_role.codedeploy.name
+  policy_arn = "arn:aws:iam::aws:policy/AWSCodeDeployFullAccess"
+}
+resource "aws_iam_role_policy_attachment" "AWSEC2FullAccess" {
+  role       = aws_iam_role.codedeploy.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+}
+
+
+resource "aws_iam_role_policy_attachment" "AWSCodeDeployRole" {
+  role       = aws_iam_role.codedeploy.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
+}

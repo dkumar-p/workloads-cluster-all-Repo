@@ -1,0 +1,21 @@
+## KMS-S3---------------------------------------------
+resource "aws_kms_key" "kms-s3" {
+  description = "S3 KMS to account"
+  tags        = var.tags
+}
+
+resource "aws_kms_alias" "kms-s3" {
+  name          = "alias/infra-kms-s3"
+  target_key_id = aws_kms_key.kms-s3.key_id
+}
+
+## KMS-EBS---------------------------------------------
+resource "aws_kms_key" "kms-ebs" {
+  description = "Ebs KMS to account"
+  tags        = var.tags
+}
+
+resource "aws_kms_alias" "kms-ebs" {
+  name          = "alias/infra-kms-ebs"
+  target_key_id = aws_kms_key.kms-ebs.key_id
+}

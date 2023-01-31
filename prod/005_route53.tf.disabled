@@ -1,0 +1,21 @@
+# Associate VPC to account PHZ
+# !!! DO NOT apply to dummy VPC !!! 
+
+resource "aws_route53_zone_association" "workload" {
+  zone_id = data.terraform_remote_state.workloads-prod-backoffice.outputs.route53_zone_zone_id["private-vpc.workloads-prod-backoffice.aws.iberia.es"]
+  vpc_id  = module.vpc-Cluster.vpc_id
+}
+
+# Resolver rules
+# !!! DO NOT apply to dummy VPC !!! 
+
+data "aws_route53_resolver_rules" "workload" {
+  rule_type    = "FORWARD"
+  share_status = "SHARED_WITH_ME"
+}
+
+resource "aws_route53_resolver_rule_association" "workload" {
+  for_each         = data.aws_route53_resolver_rules.workload.resolver_rule_ids
+  resolver_rule_id = each.value
+  vpc_id           = module.vpc-Cluster.vpc_id
+}
