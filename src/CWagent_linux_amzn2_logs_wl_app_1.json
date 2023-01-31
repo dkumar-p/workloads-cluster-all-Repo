@@ -1,0 +1,91 @@
+{
+	"logs": {
+	 "credentials": {
+	  "role_arn": "arn:aws:iam::146797033453:role/aws-cloudwatch-RoleToReceiveLogs"
+	 },
+	 "logs_collected": {
+	   "files": {
+		"collect_list": [
+		 {
+		  "file_path": "/wl_app/PortalEmpleadoAdm/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "PortalEmpleadoAdm_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/sehi/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "sehi_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/uplasintra/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "uplasintra_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/accionsocial/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "accionsocial_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/GestionDocumental/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "GestionDocumental_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/UnidadesTecnicas/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "UnidadesTecnicas_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/gestidcard/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "gestidcard_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/sigdoc/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "sigdoc_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/iberiaEmpleo/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "iberiaEmpleo_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/IAGSelfService/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "IAGSelfService_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/billetesadm/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "billetesadm_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/ValesComida/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "ValesComida_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 },
+		 {
+		  "file_path": "/wl_app/GestionTiempos/apli/logs/*",
+		  "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+		  "log_stream_name": "GestionTiempos_wspbackoffice_{hostname}",
+		  "timezone": "Local"
+		 }
+		]
+	   }
+	 }
+	}
+}

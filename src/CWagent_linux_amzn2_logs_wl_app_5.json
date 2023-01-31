@@ -1,0 +1,103 @@
+{
+	"logs": {
+	 "credentials": {
+	  "role_arn": "arn:aws:iam::146797033453:role/aws-cloudwatch-RoleToReceiveLogs"
+	 },
+	 "logs_collected": {
+	   "files": {
+		"collect_list": [
+{
+    "file_path": "/wl_app/WSprorrateo/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "WSprorrateo_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/ContabilidadV2/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "ContabilidadV2_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/intaena/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "intaena_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/FacturacionDeCreditosV2/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "FacturacionDeCreditosV2_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/segfac/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "segfac_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/iris/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "iris_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/jerbo/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "jerbo_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/IntervfacentE67/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "IntervfacentE67_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/NBDPR40/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "NBDPR40_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/RevenueAccountingV2/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "RevenueAccountingV2_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/RevenueAccountingF39WSV2/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "RevenueAccountingF39WSV2_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/RevenueAccountingWSV2/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "RevenueAccountingWSV2_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/NBDPR40IBS/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "NBDPR40IBS_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/gtii55/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "gtii55_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+	"file_path": "/wl_app/wsconsultacomarch/apli/logs/*",
+	"log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+	"log_stream_name": "wsconsultacomarch_wspbackoffice_{hostname}",
+	"timezone": "Local"
+  }
+]
+}
+}
+}
+}

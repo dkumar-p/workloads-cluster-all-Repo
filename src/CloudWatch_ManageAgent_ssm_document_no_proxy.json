@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "2.2",
+  "description": "configure Cloudwacth Agent without Proxy",
+  "parameters": {},
+  "mainSteps": [
+    {
+      "name": "CloudWatchAgentNoProxyWindows",
+      "action": "aws:runPowerShellScript",
+      "precondition": {
+        "StringEquals": [
+          "platformType",
+          "Windows"
+        ]
+      },
+      "inputs": {
+        "timeoutSeconds": "60",
+        "runCommand": [
+          "cp C:\\ProgramData\\Amazon\\AmazonCloudWatchAgent\\common-config.toml C:\\ProgramData\\Amazon\\AmazonCloudWatchAgent\\common-config.toml_bck_original\r\n\r\n$herestring1 = @\"\r\n  [proxy]\r\n     http_proxy = \"\"\r\n     https_proxy = \"\"\r\n     no_proxy = \"\"\r\n\"@\r\nWrite-Output $herestring1 > C:\\ProgramData\\Amazon\\AmazonCloudWatchAgent\\common-config.toml\r\n\r\n$MyRawString = Get-Content -Raw \"C:\\ProgramData\\Amazon\\AmazonCloudWatchAgent\\common-config.toml\"\r\n$Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $False\r\n[System.IO.File]::WriteAllLines(\"C:\\ProgramData\\Amazon\\AmazonCloudWatchAgent\\common-config.toml\", $MyRawString, $Utf8NoBomEncoding)"
+        ]
+      }
+    },
+    {
+      "name": "CloudWatchAgentNoProxyLinux",
+      "action": "aws:runShellScript",
+      "precondition": {
+        "StringEquals": [
+          "platformType",
+          "Linux"
+        ]
+      },
+      "inputs": {
+        "timeoutSeconds": "60",
+        "runCommand": [
+            "cp -a /opt/aws/amazon-cloudwatch-agent/etc/common-config.toml /opt/aws/amazon-cloudwatch-agent/etc/common-config.toml_bck_original\necho -e \" [proxy]\n     http_proxy = \\\"\\\"\n     https_proxy = \\\"\\\"\n     no_proxy = \\\"\\\"\n\" > /opt/aws/amazon-cloudwatch-agent/etc/common-config.toml"
+        ]
+      }
+    }
+  ]
+}

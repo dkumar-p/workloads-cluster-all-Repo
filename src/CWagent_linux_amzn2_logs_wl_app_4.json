@@ -1,0 +1,109 @@
+{
+	"logs": {
+	 "credentials": {
+	  "role_arn": "arn:aws:iam::146797033453:role/aws-cloudwatch-RoleToReceiveLogs"
+	 },
+	 "logs_collected": {
+	   "files": {
+		"collect_list": [
+{
+    "file_path": "/wl_app/ActualizarTrayectosWS/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "ActualizarTrayectosWS_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/AltaTrayectosWS/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "AltaTrayectosWS_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/AnulacionTrayectosWS/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "AnulacionTrayectosWS_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/billetesadm/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "billetesadm_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/ConsultaDerechosDeBeneficiariosWS/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "ConsultaDerechosDeBeneficiariosWS_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/PeticionDerechoBilletesWS/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "PeticionDerechoBilletesWS_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/SieaApp/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "SieaApp_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/DiccionariosV2/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "DiccionariosV2_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/DiccionariosWS/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "DiccionariosWS_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/GPRODV2/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "GPRODV2_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/GPRODWSV2/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "GPRODWSV2_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/PanToken/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "PanToken_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/exchangeResult/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "exchangeResult_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/SEG003SOA/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "SEG003SOA_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/apiseg/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "apiseg_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/ldap-rs/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "ldap-rs_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ }
+]
+}
+}
+}
+}

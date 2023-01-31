@@ -1,0 +1,98 @@
+{
+	"logs": {
+	 "credentials": {
+	  "role_arn": "arn:aws:iam::146797033453:role/aws-cloudwatch-RoleToReceiveLogs"
+	 },
+	 "logs_collected": {
+	   "files": {
+		"collect_list": [
+
+ {
+    "file_path": "/wl_app/mailRESTService/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "mailRESTService_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/allcomponent/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "allcomponent_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/intranet/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "intranet_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/IBPersonasADM/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "IBPersonasADM_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/SWEmision/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "SWEmision_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/empstatus/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "empstatus_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/menu-ibproxima/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "menu-ibproxima_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/WSIntegrha/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "WSIntegrha_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/PortalTripulante/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "PortalTripulante_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/docmgmtadmin/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "docmgmtadmin_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/docmgmt/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "docmgmt_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/docmgmtsalesforce/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "docmgmtsalesforce_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/docmgmtweb/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "docmgmtweb_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ },
+ {
+    "file_path": "/wl_app/docmgmtconvert/apli/logs/*",
+    "log_group_name":  "aws-cloudwatchagent-logs/wl_app/",
+    "log_stream_name": "docmgmtconvert_wspbackoffice_{hostname}",
+    "timezone": "Local"
+ }
+]
+}
+}
+}
+}

@@ -1,0 +1,68 @@
+{
+  "agent": {
+    "metrics_collection_interval": 60,
+    "logfile": "c:\\ProgramData\\Amazon\\AmazonCloudWatchAgent\\Logs\\amazon-cloudwatch-agent.log",
+	  "namespace": "CWAgent"
+    },
+    "metrics": {
+        "namespace": "CWAgent",
+        "metrics_collected": {
+          "Processor": {
+            "measurement": [
+              {"name": "% Idle Time", "unit": "Percent"},
+              "% Interrupt Time",
+              "% User Time",
+              "% Processor Time"
+            ],
+            "resources": [
+              "*"
+            ]
+          },
+          "LogicalDisk": {
+            "measurement": [
+              {"name": "% Idle Time", "unit": "Percent"},
+              "% Disk Read Time",
+              "% Disk Write Time",
+              "% Free Space"
+            ],
+            "resources": [
+              "*"
+            ]
+          },
+          "Memory": {
+            "metrics_collection_interval": 5,
+            "measurement": [
+              "Available Bytes",
+              "Cache Faults/sec",
+              "Page Faults/sec",
+              "Pages/sec"
+            ]
+          },
+          "Network Interface": {
+            "metrics_collection_interval": 5,
+            "measurement": [
+              "Bytes Received/sec",
+              "Bytes Sent/sec",
+              "Packets Received/sec",
+              "Packets Sent/sec"
+            ],
+            "resources": [
+              "*"
+            ]
+          },
+          "System": {
+            "measurement": [
+              "Context Switches/sec",
+              "System Calls/sec",
+              "Processor Queue Length"
+            ]
+          }
+        },
+        "append_dimensions": {
+          "InstanceId": "${aws:InstanceId}",
+          "InstanceType": "${aws:InstanceType}",
+          "AutoScalingGroupName": "${aws:AutoScalingGroupName}"
+        },
+        "aggregation_dimensions" : [["InstanceId", "InstanceType"],[]]
+      }
+  }
