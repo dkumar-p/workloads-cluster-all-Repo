@@ -85,3 +85,47 @@ resource "aws_vpc_endpoint" "vpce-s3-transit" {
   )
 
 }
+    
+
+#endpoint ssmendpoint
+resource "aws_vpc_endpoint" "ssm_endpoint" {
+  provider            = aws.precommercial
+  subnet_ids          = [element(module.exadata_vpc.private_subnets, 0), element(module.exadata_vpc.private_subnets, 1)]
+  vpc_id              = module.exadata_vpc.vpc_id
+  vpc_endpoint_type   = "Interface"
+  service_name        = "com.amazonaws.eu-west-1.ssm"
+  security_group_ids  = [aws_security_group.allow_tls.id]
+  private_dns_enabled = true
+  tags = merge(var.tags, {
+    Name = "${var.name_vpc_cluster}_ssm-endpoint"
+    }
+  )
+}
+
+
+resource "aws_vpc_endpoint" "ssmmessages_endpoint" {
+  provider            = aws.precommercial
+  subnet_ids          = [element(module.exadata_vpc.private_subnets, 0), element(module.exadata_vpc.private_subnets, 1)]
+  vpc_id              = module.exadata_vpc.vpc_id
+  vpc_endpoint_type   = "Interface"
+  service_name        = "com.amazonaws.eu-west-1.ssmmessages"
+  security_group_ids  = [aws_security_group.allow_tls.id]
+  private_dns_enabled = true
+  tags = merge(var.tags, {
+    Name = "${var.name_vpc_cluster}_ssmmessages_endpoint"
+    }
+  )
+}
+resource "aws_vpc_endpoint" "ec2messages_endpoint" {
+  provider            = aws.precommercial
+  subnet_ids          = [element(module.exadata_vpc.private_subnets, 0), element(module.exadata_vpc.private_subnets, 1)]
+  vpc_id              = module.exadata_vpc.vpc_id
+  vpc_endpoint_type   = "Interface"
+  service_name        = "com.amazonaws.eu-west-1.ec2messages"
+  private_dns_enabled = true
+  security_group_ids  = [aws_security_group.allow_tls.id]
+  tags = merge(var.tags, {
+    Name = "${var.name_vpc_cluster}_ec2messages_endpoint"
+    }
+  )
+}
